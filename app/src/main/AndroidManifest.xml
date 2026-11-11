@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permisos exclusivos para ganar el arranque en frío -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
-    <!-- Compatibilidad con Android TV -->
     <uses-feature android:name="android.software.leanback" android:required="true" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
@@ -19,7 +17,6 @@
         android:directBootAware="true"
         android:theme="@android:style/Theme.NoDisplay">
 
-        <!-- ACTIVIDAD PUENTE: Launcher Principal y de TV -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -33,7 +30,6 @@
             </intent-filter>
         </activity>
 
-        <!-- DETECTOR DE ENCHUFE -->
         <receiver
             android:name=".BootReceiver"
             android:enabled="true"
@@ -47,7 +43,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- SERVICIO REPETIDOR ANTI-CLARO -->
         <service
             android:name=".BridgeService"
             android:enabled="true"
