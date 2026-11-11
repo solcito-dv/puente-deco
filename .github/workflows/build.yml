@@ -17,6 +17,11 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
+    - name: Configurar Gradle Compatible
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.5'
+
     - name: Compilar APK Debug
       run: gradle assembleDebug
 
